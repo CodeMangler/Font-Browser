@@ -1,0 +1,11 @@
+﻿<Window x:Class="CodeMangler.FontBrowser.FontStyleDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:fontStyle="clr-namespace:CodeMangler.FontBrowser.Controls"
+    Title="Font Style" Height="272" Width="262">
+    <Grid>
+        <fontStyle:FontStyleControl HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="styleControl" />
+        <Button Content="OK" Height="23" HorizontalAlignment="Left" Margin="10,0,0,10" Name="btnOk" VerticalAlignment="Bottom" Width="75" Click="btnOk_Click" IsDefault="True" />
+        <Button Content="Cancel" Height="23" HorizontalAlignment="Right" Margin="0,0,10,10" Name="btnCancel" VerticalAlignment="Bottom" Width="75" IsCancel="True" />
+    </Grid>
+</Window>

@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="CodeMangler.FontBrowser.Controls.FontStyleControl"
+	        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	        mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Label HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0">Style Name</Label>
+        <TextBox Name="txtStyleName" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" MinWidth="100" TextChanged="txtStyleName_TextChanged" />
+        <GroupBox Name="grpFontProperties" Header="Font Properties" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid MinHeight="100" Grid.Row="1" Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="100" />
+                        <ColumnDefinition Width="Auto" MinWidth="100" />
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Grid.Column="0" Grid.Row="0" Content="Bold" x:Name="chkBold" Margin="5" Checked="weightChanged" Unchecked="weightChanged" />
+                    <CheckBox Grid.Column="0" Grid.Row="1" Content="Italic" x:Name="chkItalic" Margin="5" Checked="styleChanged" Unchecked="styleChanged" />
+                    <CheckBox Grid.Column="0" Grid.Row="2" Content="Underline" x:Name="chkUnderline" Margin="5" Checked="decorationChanged" Unchecked="decorationChanged" />
+                    <CheckBox Grid.Column="0" Grid.Row="3" Content="Baseline" x:Name="chkBaseline" Margin="5" Checked="decorationChanged" Unchecked="decorationChanged" />
+                    <CheckBox Grid.Column="1" Grid.Row="0" Content="Strikethrough" x:Name="chkStrikethrough" Margin="5" Checked="decorationChanged" Unchecked="decorationChanged"/>
+                    <CheckBox Grid.Column="1" Grid.Row="1" Content="Overline" x:Name="chkOverline" Margin="5" Checked="decorationChanged" Unchecked="decorationChanged" />
+                    <CheckBox Grid.Column="1" Grid.Row="2" Content="Superscript" x:Name="chkSuperscript" Margin="5" Checked="variantChanged" Unchecked="variantChanged" />
+                    <CheckBox Grid.Column="1" Grid.Row="3" Content="Subscript" x:Name="chkSubscript" Margin="5" Checked="variantChanged" Unchecked="variantChanged" />
+                </Grid>
+
+                <Label HorizontalAlignment="Left" VerticalAlignment="Center" Content="Size" Grid.Row="0" Grid.Column="0" />
+                <ComboBox Name="cmbFontSize" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" MinWidth="50" SelectionChanged="cmbFontSize_SelectionChanged"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

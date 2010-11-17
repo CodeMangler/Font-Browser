@@ -1,0 +1,45 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:fb="clr-namespace:CodeMangler.FontBrowser"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="CodeMangler.FontBrowser.MainWindow"
+    Title="Font Browser" mc:Ignorable="d" Height="552" Width="807">
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="fb:Commands.NewStyle" Executed="CreateNewStyle" />
+    </Window.CommandBindings>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="550*" MinWidth="550" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" MinWidth="100" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="49" />
+            <RowDefinition Height="500*" MinHeight="200"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="200" MinHeight="200"/>
+        </Grid.RowDefinitions>
+        <Label HorizontalAlignment="Left" Margin="34,6.887,0,18.836" Content="Sample Text" Width="81" />
+        <TextBox Margin="121,12,224,17.723" TextWrapping="Wrap" Name="txtSample" LostFocus="txtSample_LostFocus" />
+        <ListView Grid.Row="1" Name="lstFonts" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="fb:Commands.NewStyle" />
+                    <MenuItem Command="fb:Commands.EditStyle" />
+                    <MenuItem Command="fb:Commands.RemoveStyle" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Font" Width="Auto" DisplayMemberBinding="{Binding FontFamilyName}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <GridSplitter Name="verticalSplitter" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Width="10" VerticalAlignment="Stretch" HorizontalAlignment="Center" />
+        <GridSplitter Name="horizontalSplitter" Grid.Row="2" Height="10"  VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+        <ListBox Name="lstSavedStyles" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        <RichTextBox Name="txtFontTryout" Grid.Row="3" Height="143" Margin="12,45,6,12" Width="657" />
+    </Grid>
+</Window>
